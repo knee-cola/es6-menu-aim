@@ -1,8 +1,10 @@
 # What's this?
 
-This is an ES6 re-implementation of [jQuery-menu-aim](https://github.com/kamens/jQuery-menu-aim) by [Ben Kamens](https://github.com/kamens).
+This is an ES6 re-implementation of [jQuery-menu-aim](https://github.com/kamens/jQuery-menu-aim) by [Ben Kamens](https://github.com/kamens) - it has been written so that it can be used/imported as a regular ES6 module (see the example below).
 
-It has been written so that it can be used/imported as a regular ES6 module ... like so (a more detailed example can be found at the end of this document):
+Additional bonus is that, this one doesn't use jQuery ... in fact it has no dependencies.
+
+Here's an example (a more detailed example can be found at the end of this document):
 
 ```javascript
 import { MenuAim } from 'es6-menu-aim';
@@ -17,8 +19,6 @@ let menu_aim_config = {
 
 let menu_aim = new MenuAim(menuRoot, menu_aim_config);
 ```
-
-Unlike the original **jQuery-menu-aim**, this one doesn't use jQuery ... in fact it has no dependencies.
 
 ## Why would I want use this?
 

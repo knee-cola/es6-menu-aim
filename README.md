@@ -2,17 +2,23 @@
 
 This is an ES6 re-implementation of [jQuery-menu-aim](https://github.com/kamens/jQuery-menu-aim) by [Ben Kamens](https://github.com/kamens).
 
-It has been written so that it can be used/imported as a regular ES6 module ... like so:
+It has been written so that it can be used/imported as a regular ES6 module ... like so (a more detailed example can be found at the end of this document):
 
 ```javascript
 import { MenuAim } from 'es6-menu-aim';
 
-let menuRoot = document.getElementById('menuRoot');
+let menu_root = document.getElementById('menuRoot');
 
-let menu_aim = new MenuAim(menuRoot);
+let menu_aim_config = {
+    clickRow:function (mouseEvent, targetRow) {
+        console.log('menu item was clicked!');
+    }
+};
+
+let menu_aim = new MenuAim(menuRoot, menu_aim_config);
 ```
 
-Unlike the original *jQuery-menu-aim*, this one doesn't use jQuery ... in fact it has no dependencies.
+Unlike the original **jQuery-menu-aim**, this one doesn't use jQuery ... in fact it has no dependencies.
 
 ## Why would I want use this?
 

@@ -160,14 +160,14 @@ class MenuAim {
             this.timeoutId = null;
         }
 
-        this.options.enter(ev.target);
+        this.options.enter(ev.currentTarget);
 
-        this.possiblyActivate(<HTMLElement>ev.target);
+        this.possiblyActivate(<HTMLElement>ev.currentTarget);
     }
 
 
     mouseleaveRow(ev:MouseEvent):void {
-        this.options.exit(ev.target);
+        this.options.exit(ev.currentTarget);
     }
 
     /**
@@ -176,11 +176,11 @@ class MenuAim {
      */
     clickRow(ev:MouseEvent):void {
         
-        if(ev.target !== this.activeRow) {
-            this.activate(<HTMLElement>ev.target);
+        if(ev.currentTarget !== this.activeRow) {
+            this.activate(<HTMLElement>ev.currentTarget);
         }
 
-        this.options.clickRow(ev, ev.target); // pozovi registrirani event handler
+        this.options.clickRow(ev, ev.currentTarget); // pozovi registrirani event handler
     }
 
     /**

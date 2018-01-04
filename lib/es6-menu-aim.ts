@@ -25,7 +25,7 @@ class MenuAim {
     /**
      * Constructor function
      * @param menu root menu HTML element
-     * @param opts (optional) config options
+     * @param opts (optional) config options (see [Options](#options))
      */
     constructor(menu:HTMLElement, opts?:Options) {
 
@@ -133,7 +133,7 @@ class MenuAim {
 
         // IF exitMenu is supplied and returns true, deactivate the
         // currently active row on menu exit.
-        if (this.options.exitMenu(self)) {
+        if (this.options.exitMenu(this)) {
             if (this.activeRow) {
                 this.options.deactivate(this.activeRow);
             }
@@ -355,8 +355,6 @@ class MenuAim {
      * @param row DOM node to be set active
      */
     setActiveRow(row:HTMLElement):void {
-
-        var self = this;
 
         this.activeRow = row;
 

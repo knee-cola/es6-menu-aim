@@ -7,7 +7,9 @@ It has been written so that it can be used/imported as a regular ES6 module ... 
 ```javascript
 import { MenuAim } from 'es6-menu-aim';
 
-let mAim = new MenuAim('');
+let menuRoot = document.getElementById('menuRoot');
+
+let menu_aim = new MenuAim(menuRoot);
 ```
 
 Unlike the original *jQuery-menu-aim*, this one doesn't use jQuery ... in fact it has no dependencies.
@@ -58,7 +60,7 @@ Constructor function
 | Param | Description |
 | --- | --- |
 | menu | root menu HTML element |
-| opts | (optional) config options |
+| opts | (optional) config options (see [Options](#options)) |
 
 <a name="MenuAim+attach"></a>
 
@@ -179,6 +181,73 @@ Detaches MenuAim from DOM containser ... to be used
 while disposing the menu
 
 **Kind**: instance method of [<code>MenuAim</code>](#MenuAim)  
+
+## Options
+
+MenuAim constructor as the second parameter excepts an object containing options.
+
+The following snippet show these options (this is a modified version of original snippet found at  [jQuery-menu-aim](https://github.com/kamens/jQuery-menu-aim)):
+
+```javascript
+import { MenuAim } from 'es6-menu-aim';
+
+let menu_aim_options = {
+
+    /** Function to call when a row is purposefully activated.
+     *  Use this to show a submenu's content for the activated row.*/ 
+    activate:function (targetRow) { ... },
+
+    /** Function to call when a row is deactivated */
+    deactivate:function (targetRow) { ... },
+
+    /** Function to call when mouse enters a menu row.
+     * Entering a row does not mean the row has been
+     * activated, as the user may be mousing over to a submenu. */
+    enter:function (targetRow) { ... },
+
+    /** Function to call when mouse exits a menu row. */
+    exit:function (targetRow) { ... },
+
+    /** Function to call when mouse exits the entire menu. If this
+     *  returns true, the current row's deactivation event and
+     *  callback function will be fired. Otherwise, if this isn't
+     *  supplied or it returns false, the currently activated row
+     *  will stay activated when the mouse leaves the menu entirely. */
+    exitMenu:function (menu_aim_instance) { ... },
+
+    /** Function to call when a menu row is clicked */
+    clickRow:function (mouseEvent, targetRow) { ... },
+
+    /** Selector for identifying which elements in the menu are rows
+     *  that can trigger the above events. Defaults to "> li". */
+    rowSelector:"> li",
+
+    /** You may have some menu rows that aren't submenus and therefore
+     *  shouldn't ever need to "activate." If so, filter submenu rows
+     *  w/ this selector. Defaults to "*" (all elements). */
+    submenuSelector: "*",
+
+    /** Direction the submenu opens relative to the main menu.
+     *  This controls which direction is "forgiving" as the user
+     *  moves their cursor from the main menu into the submenu.
+     *  Can be one of "right", "left", "above", or "below".
+     *  Defaults to "right". */
+    submenuDirection:"right",
+
+    /** for how long should menu remain displayed after the mouse has left it */
+    exitDelay:null,
+
+    /** bigger = more forgiving when entering submenu */
+    tolerance:75,
+
+    /** set it to TRUE if the menu is not nested within another menu */
+    isRoot:false
+};
+
+let menuRoot = document.getElementById('menuRoot');
+
+let menu_aim = new MenuAim(menuRoot, menu_aim_options);
+```
 
 # License
 MIT License, [http://www.opensource.org/licenses/MIT](http://www.opensource.org/licenses/MIT)

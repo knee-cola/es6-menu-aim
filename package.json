@@ -1,6 +1,6 @@
 {
   "name": "es6-menu-aim",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ES6 re-implementation of jQuery-menu-aim",
   "main": "dist/es6-menu-aim.js",
   "types": "dist/es6-menu-aim.d.ts",

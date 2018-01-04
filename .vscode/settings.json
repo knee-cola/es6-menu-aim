@@ -1,0 +1,4 @@
+{
+    // don't want Ctrl+P to search within folders defined in .gitignore
+    "search.useIgnoreFiles": true,
+}

@@ -1,0 +1,38 @@
+{
+  "name": "es6-menu-aim",
+  "version": "1.0.0",
+  "description": "ES6 re-implementation of jQuery-menu-aim",
+  "main": "dist/es6-menu-aim.js",
+  "types": "dist/es6-menu-aim.d.ts",
+  "scripts": {
+    "clean": "rm -r ./dist/",
+    "prod": "webpack -p",
+    "dev": "webpack --verbose",
+    "tsc": "tsc --project tsconfig.doc.json",
+    "doc": "npm run clean && npm run tsc && jsdoc2md --template ./README.hbs ./dist/es6-menu-aim.js > README.md",
+    "deploy2npm": "npm run doc && npm run prod && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/knee-cola/es6-menu-aim"
+  },
+  "keywords": [
+    "menu-aim"
+  ],
+  "author": "knee-cola <nikola.derezic@gmail.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.32",
+    "@babel/preset-env": "^7.0.0-beta.32",
+    "@types/jest": "^21.1.8",
+    "@types/lodash": "^4.14.87",
+    "babel-loader": "^8.0.0-beta.0",
+    "clean-webpack-plugin": "^0.1.17",
+    "jsdoc-to-markdown": "^3.0.2",
+    "ts-loader": "^3.1.1",
+    "typescript": "^2.6.1",
+    "typescript-compiler": "^1.4.1-2",
+    "webpack": "^3.10.0"
+  }
+}

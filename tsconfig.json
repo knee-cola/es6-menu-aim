@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "noImplicitAny": true,
+        // module resolution strategy ('node','classic')
+        "moduleResolution": "node",
+        //  ECMAScript target version ('ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', or 'ESNEXT')
+        "target": "ESNEXT",
+        // module code generation ('commonjs', 'amd', 'system', 'umd' or 'es2015')
+        "module": "commonjs",
+        "sourceMap": true,
+        "noLib": false,
+        // create declaration files in output folder
+        "declaration": true,
+        // put declaration files alomngside the compiled javascript
+        "declarationDir": "./"
+    },
+    "exclude": [
+        "node_modules",
+        "dist",
+        "test",
+        "__mocks__"
+    ],
+    "include": [
+       "lib/*.ts"
+    ]
+}

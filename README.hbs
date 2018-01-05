@@ -24,7 +24,8 @@ let menu_aim = new MenuAim(menuRoot, menu_aim_config);
 
 The use case for menu aim is best described in README of the original [jQuery-menu-aim](https://github.com/kamens/jQuery-menu-aim).
 
-You might want to use this one over the original 
+You might want to use this implementation instead of the [original](https://github.com/kamens/jQuery-menu-aim) if you want the benefit ES6 import and also if you use TypeScript (typings are included in the build).
+
 ## How to install?
 
 Simply open up a terminal, go to your project directory and run:

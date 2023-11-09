@@ -1,38 +1,52 @@
 {
-  "name": "es6-menu-aim",
+  "name": "@mysigmail/menu-aim",
   "version": "1.0.4",
   "description": "ES6 re-implementation of jQuery-menu-aim",
-  "main": "dist/es6-menu-aim.js",
-  "types": "dist/es6-menu-aim.d.ts",
-  "scripts": {
-    "clean": "rm -r ./dist/",
-    "prod": "webpack -p",
-    "dev": "webpack --verbose",
-    "tsc": "tsc --project tsconfig.doc.json",
-    "doc": "npm run clean && npm run tsc && jsdoc2md --template ./README.hbs ./dist/es6-menu-aim.js > README.md",
-    "deploy2npm": "npm run doc && npm run prod && npm publish"
-  },
+  "type": "module",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/knee-cola/es6-menu-aim"
+    "url": "https://github.com/mysigmail/es6-menu-aim"
   },
   "keywords": [
     "menu-aim"
   ],
-  "author": "knee-cola <nikola.derezic@gmail.com>",
-  "license": "MIT",
-  "dependencies": {},
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.js",
+  "scripts": {
+    "lint": "eslint src",
+    "lint:fix": "eslint --fix src",
+    "build": "vite build"
+  },
+  "authors": [
+    {
+      "name": "knee-cola",
+      "email": "nikola.derezic@gmail.com>"
+    },
+    {
+      "name": "Anton Reshetov",
+      "email": "reshetov.art@gmail.com"
+    }
+  ],
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.32",
-    "@babel/preset-env": "^7.0.0-beta.32",
-    "@types/jest": "^21.1.8",
-    "@types/lodash": "^4.14.87",
-    "babel-loader": "^8.0.0-beta.0",
-    "clean-webpack-plugin": "^0.1.17",
-    "jsdoc-to-markdown": "^3.0.2",
-    "ts-loader": "^3.1.1",
-    "typescript": "^2.6.1",
-    "typescript-compiler": "^1.4.1-2",
-    "webpack": "^3.10.0"
+    "@antfu/eslint-config": "^1.1.0",
+    "@commitlint/cli": "^18.2.0",
+    "@commitlint/config-conventional": "^18.1.0",
+    "eslint": "^8.53.0",
+    "lint-staged": "^15.0.2",
+    "simple-git-hooks": "^2.9.0",
+    "typescript": "^5.2.2",
+    "vite": "^4.5.0",
+    "vite-plugin-dts": "^3.6.3"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged",
+    "commit-msg": "pnpm commitlint --edit $1"
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint --fix"
+    ]
   }
 }
